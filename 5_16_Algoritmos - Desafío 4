@@ -1,0 +1,32 @@
+def ordenar_estudiantes_por_promedio(estudiantes):
+    n = len(estudiantes)
+    
+    # Implementación de Selection Sort para ordenar de forma descendente
+    for i in range(n):
+        # Suponemos que el primer elemento no ordenado es el máximo
+        max_idx = i
+        
+        # Buscamos el máximo en la parte no ordenada
+        for j in range(i + 1, n):
+            if estudiantes[j][1] > estudiantes[max_idx][1]:
+                max_idx = j
+        
+        # Intercambiamos el máximo encontrado con el primer elemento no ordenado
+        estudiantes[i], estudiantes[max_idx] = estudiantes[max_idx], estudiantes[i]
+    
+    return estudiantes
+
+# Ejemplo de uso
+estudiantes = [
+    ("Juan", 85),
+    ("Ana", 92),
+    ("Luis", 78),
+    ("Carlos", 90),
+    ("María", 88)
+]
+
+estudiantes_ordenados = ordenar_estudiantes_por_promedio(estudiantes)
+for estudiante in estudiantes_ordenados:
+    print(estudiante)
+
+    
